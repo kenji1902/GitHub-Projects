@@ -1,14 +1,9 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include<algorithm>
-
 
 using namespace std;
-bool characters(char t)
-{
-	return (t < '0' || t > '9');
-}
+
 void numFilter(vector<char>vecarray, string *svec)
 {	
 	
