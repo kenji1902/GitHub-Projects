@@ -12,7 +12,6 @@ void numFilter(vector<char>vecarray, string *svec)
 		
 		if (*it < '0' || *it >'9')//..................!number detector
 		{
-			remove_if(vecarray.begin(),vecarray.end(),it);
 			 /*tel num use (delete bottom if used)
 			vecarray.clear();
 			break;*/
