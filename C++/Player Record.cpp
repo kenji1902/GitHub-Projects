@@ -76,10 +76,7 @@ int main()
 {
 	char choice;
 	string name, Hscorename;
-	int getage, //.............// get the age
-		score1, //.............// get the score 1
-		score2, //.............// get the score 2
-		i = 0, //..............// to add players
+	int i = 0, //..............// to add players
 		Hscore,
 		average; //............// storage of average
 	vector<player_record> add; //to make player_record an array type
@@ -104,21 +101,16 @@ int main()
 		switch (choice) {
 		case '1' :
 				cin.ignore(INT_MAX, '\n');// remove the newline of cin
+				add.push_back(player_record());
 				cout << "Nick name: ";
-				getline(cin, name);
+				getline(cin, add[i].nickname);
 				cout << "age: ";
-				cin >> getage;
+				cin >> add[i].age;
 				cout << "score 1: ";
-				cin >> score1;
+				cin >> add[i].score_1;
 				cout << "score 2: ";
-				cin >> score2;
-				cin.ignore(INT_MAX,'\n');
+				cin >> add[i].score_2;
 				cout << endl;
-				add.push_back(player_record()); //put every player_record 
-				add[i].nickname = name;         //values to vector add
-				add[i].age = getage;
-				add[i].score_1 = score1;
-				add[i].score_2 = score2;
 				add[i].average = _average(average, add[i].score_1, add[i].score_2);
 				i++;//.........................//new player
 				Line(50);
