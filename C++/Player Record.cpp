@@ -112,6 +112,7 @@ int main()
 				cin >> score1;
 				cout << "score 2: ";
 				cin >> score2;
+				cin.ignore(INT_MAX,'\n');
 				cout << endl;
 				add.push_back(player_record()); //put every player_record 
 				add[i].nickname = name;         //values to vector add
