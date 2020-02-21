@@ -5,22 +5,18 @@
 using namespace std;
 
 template<typename T>
-T extract(T& data)
+T extract(T& data,ifstream &infile)
 {
-	ifstream infile;
-	infile.open("extract.txt");//data <- txt 
+	//address of infile = data <- txt 
 	infile.ignore(256,'=');//limit until equals
-	/*infile >> data; //txt -> data
-	infile.close();//*/
-	getline(infile,data);//with space
-	infile.close();//*/
+	getline(infile,data,'\n');//txt -> data with spaces//*/
 	return data;
 }
 int main()
 {
 	ifstream infile;
 	ofstream outfile;
-	string data = "Age =19";
+	string data = "Name =Kenji Shimizu\nAge =19\nScore =98\nHuman =1";
 	//string data = "Name =AYEMK with space";
 	//bool data = true;
 	
@@ -28,12 +24,18 @@ int main()
 	outfile << data;
 	outfile.close();
 	
-	cout<<extract(data)<<endl;
-	/*int dataint = stoi(data);//change extracted in to integer
-	dataint += 1; //test
-	cout<<dataint;
-	infile.open("extract.txt");//data << txt*/ 
-
+	infile.open("extract.txt");//------>Start
+	cout<<extract(data,infile)<<endl;//Name
+	cout<<extract(data,infile)<<endl;//Age
+	cout<<extract(data,infile)<<endl;//Score data
+	extract(data,infile);//..........//Human or Not!
+	int dataint = stoi(data);//......//change extracted into integer
 	
+	bool databool;
+	if(dataint == 1) databool = true;
+	else databool = false;
+	cout<<boolalpha<<databool<<endl;//shows wether true or false*/
+	infile.close();//----------------->End
 	
+	return 0;
 }
