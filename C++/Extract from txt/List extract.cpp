@@ -8,37 +8,32 @@ template<typename T>
 T extract(T& data)
 {
 	ifstream infile;
-	infile.open("extract.txt");//data << txt 
+	infile.open("extract.txt");//data <- txt 
 	infile.ignore(256,'=');//limit until equals
-	infile >> data; //txt >> data
-	infile.close();
+	/*infile >> data; //txt -> data
+	infile.close();//*/
+	getline(infile,data);//with space
+	infile.close();//*/
 	return data;
 }
 int main()
 {
 	ifstream infile;
 	ofstream outfile;
-	string data = "Age = 19";
-	//string data = "Name = AYEMK";
+	string data = "Age =19";
+	//string data = "Name =AYEMK with space";
 	//bool data = true;
-	//string getdata;
 	
 	outfile.open("extract.txt");//data >> txt
 	outfile << data;
 	outfile.close();
 	
 	cout<<extract(data)<<endl;
-	int dataint = stoi(data);
-	dataint += 1;
+	/*int dataint = stoi(data);//change extracted in to integer
+	dataint += 1; //test
 	cout<<dataint;
-	/*infile.open("extract.txt");//data << txt 
-	infile.ignore(256,'=');//limit until equals
+	infile.open("extract.txt");//data << txt*/ 
+
 	
-	infile >> dataint;
-	cout<<dataint;
-	infile.close();*/
 	
-	/*getline(infile,getdata);
-	cout<<getdata;
-	infile.close();*/
 }
